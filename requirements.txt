@@ -1,0 +1,12 @@
+-e .
+pandas
+selenium
+bs4
+seaborn
+pandas-profiling
+matplotlib
+Flask
+sklearn3
+
+
+

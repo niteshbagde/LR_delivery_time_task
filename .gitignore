@@ -1,0 +1,36 @@
+
+
+# Ignore compiled Python files
+*.pyc
+
+# Ignore virtual environment folders
+venv/
+env/
+env*/
+
+# Ignore Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# Ignore local development settings
+local_settings.py
+
+# Ignore macOS files
+.DS_Store
+
+# Ignore log files
+logs/
+*.log
+
+# Ignore compiled binaries
+*.exe
+*.dll
+*.so
+*.dylib
+*.out
+
+# Ignore user-specific files
+*.suo
+*.user
+*.cache
+*.vs
+*.vscode
