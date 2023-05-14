@@ -1,12 +1,16 @@
 -e .
-pandas
-selenium
-bs4
-seaborn
-pandas-profiling
-matplotlib
-Flask
-sklearn3
+pandas>=1.0.5
+selenium>=3.141.0
+beautifulsoup4>=4.9.3
+seaborn>=0.11.1
+pandas-profiling>=2.11.0
+scikit-learn>=0.24.2
+jupyter>=1.0.0
+numpy>=1.20.3
+matplotlib>=3.4.2
+Flask>=2.0.1
+pickle
+
 
 
 

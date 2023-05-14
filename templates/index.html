@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Delivery Time Estimation</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+  <link rel="stylesheet" href="#">
+</head>
+
+
+
+<body>
+  <h3 align="center">Delivery time estimation</h3>
+
+  <ul class="nav justify-content-center">
+    <li class="nav-item">
+      <a class="nav-link active" href="{{ url_for('home_page') }}">Home</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="{{ url_for('model_details') }}">Model Details</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="{{ url_for('train_data_report') }}" target="_blank">Data Details</a>
+    </li>
+  </ul>
+
+
+  <div class="container">
+    <h5>Provide the following details :</h5>
+
+
+    <form action="{{url_for('predict_datapoint')}}" method="POST">
+      <div align="center">
+
+        <table class="table">
+          <tbody>
+            <tr>
+              <th>Delivery person Age</th>
+              <td><input type="number" step="0.01" name="Delivery_person_Age" class="form-control" placeholder="age as integer"></td>
+            </tr>
+            <tr>
+              <th>Delivery person Ratings</th>
+              <td><input type="number" step="0.01" name="Delivery_person_Ratings" class="form-control" placeholder=" rating as float"></td>
+            </tr>
+            <tr>
+              <th>Restaurant latitude</th>
+              <td><input type="number" step="0.00000001" name="Restaurant_latitude" class="form-control" placeholder="cordinates as flaot"></td>
+            </tr>
+            <tr>
+              <th>Restaurant longitude</th>
+              <td><input type="number" step="0.00000001" name="Restaurant_longitude" class="form-control" placeholder="cordinates as flaot"></td>
+            </tr>
+            <tr>
+              <th>Delivery location latitude</th>
+              <td><input type="number" step="0.00000001" name="Delivery_location_latitude" class="form-control" placeholder="cordinates as flaot"></td>
+            </tr>
+            <tr>
+              <th>Delivery location longitude</th>
+              <td><input type="number" step="0.00000001" name="Delivery_location_longitude" class="form-control" placeholder="cordinates as flaot"></td>
+            </tr>
+            <tr>
+              <th>Time Orderd</th>
+              <td><input type="number" step="00.001" name="Time_Orderd" class="form-control" placeholder="time as string in 24 hour format ex. 22.00"></td>
+            </tr>
+            <tr>
+              <th>Time Order picked</th>
+              <td><input type="number" step="00.001" name="Time_Order_picked" class="form-control" placeholder="time as string in 24 hour format ex. 20.50"></td>
+            </tr>
+            <tr>
+              <th>Weather conditions</th>
+              <td>
+                <select name="Weather_conditions" class="form-control">
+                  <option value="Fog">Fog</option>
+                  <option value="Stormy">Stormy</option>
+                  <option value="Sandstorms">Sandstorms</option>
+                  <option value="Windy">Windy</option>
+                  <option value="Cloudy">Cloudy</option>
+                  <option value="Sunny">Sunny</option>
+                </select>
+              </td>
+            </tr>
+            <tr>
+              <th>Road traffic density</th>
+              <td>
+                <select name="Road_traffic_density" class="form-control">
+                  <option value="Low">Low</option>
+                  <option value="Medium">Medium</option>
+                  <option value="High">High</option>
+                  <option value="Jam">Jam</option>
+                </select>
+              </td>
+            </tr>
+            <tr>
+              <th>Vehicle condition</th>
+              <td>
+                <select name="Vehicle_condition" class="form-control">
+                  <option value="0">0 - Poor</option>
+                  <option value="1">1 - Average</option>
+                  <option value="2">2 - Good</option>
+                </select>
+              </td>
+            </tr>
+            <tr>
+              <th>Type of order</th>
+              <td>
+                <select name="Type_of_order" class="form-control">
+                  <option value="Snack">Snack</option>
+                  <option value="Meal">Meal</option>
+                  <option value="Buffet">Buffet</option>
+                  <option value="Drinks">Drinks</option>
+                </select>
+              </td>
+            </tr>
+            <tr>
+              <th>Type of vehicle</th>
+              <td>
+                <select name="Type_of_vehicle" class="form-control">
+                  <option value="motorcycle">motorcycle</option>
+                  <option value="scooter">scooter</option>
+                  <option value="electric_scooter">electric_scooter</option>
+                </select>
+              </td>
+            </tr>
+            <tr>
+              <th>Multiple deliveries</th>
+              <td><input type="number" step="0.01" name="Multiple_deliveries" class="form-control" placeholder=" count as integer"></td>
+            </tr>
+            <tr>
+              <th>Festival</th>
+              <td>
+                <select name="Festival" class="form-control">
+                  <option value="No">No</option>
+                  <option value="Yes">Yes</option>
+                </select>
+              </td>
+            </tr>
+            <tr>
+              <th>City</th>
+              <td>
+                <select name="City" class="form-control">
+                  <option value="Metropolitian">Metropolitian</option>
+                  <option value="Urban">Urban</option>
+                  <option value="Semi-Urban">Semi-Urban</option>
+                </select>
+              </td>
+            </tr>
+
+
+          </tbody>
+        </table>
+      </div>
+
+      <div align="center">
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </div>
+      
+    </form>
+  </div>
+
+
+
+
+
+</body>
+
+
+
+
+
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+  integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js"
+  integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js"
+  integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+</html>

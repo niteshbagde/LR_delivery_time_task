@@ -1,0 +1,8 @@
+# create automation pipeline for cleaning data like missing data and all
+# create function that calculate time difference for order and pick time
+# craete function to collect and fill onground distance
+
+# train model
+# finailize the accuracy
+
+# create flask app and deploy to docker, aws , azure
