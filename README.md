@@ -16,11 +16,9 @@ A linear regression model was built using the processed dataset and deployed as 
 
 ### Flask App
 
-The Flask app consists of three nav tabs: prediction, model details, and data. Users can input their data via an HTML form and get the estimated delivery time. The model details tab provides information about the backend details of the model like accuracy and name. The data tab presents a Pandas profiling report.
+The Flask app consists of three nav tabs: prediction, model details, and data details. Users can input their data via an HTML form and get the estimated delivery time. The model details tab provides information about the backend details of the model like accuracy and name. The data tab presents a Pandas profiling report.
 
 ## Quick Walkthrough
-
-The raw data contains 20 columns, including ID, delivery person details, restaurant and delivery location coordinates, order and pickup times, weather conditions, road traffic density, vehicle condition, type of order and vehicle, multiple deliveries, festival, city, and time taken.
 
 Unnecessary columns were removed via EDA & FE, and the following 15 columns represent the processed data:
 
@@ -64,11 +62,11 @@ b. The following columns can be removed since their correlation might be affecti
 
 #
 
-The pipeline was built for the linear regression model considering the above columns. The columns mentioned in the notes section can be applied, and we can observe the changes in accuracy, but they are not applied in this model. We will update the repo once done.
+The pipeline was built for the linear regression model considering the above columns. The columns mentioned in the notes section can be applied, and we can observe the changes in accuracy, but they are not applied in this model. I will update the repo when done.
 
 The Flask app was created for the model to test and apply the prediction on user input data via an HTML form.
 
-The Flask app contains three nav tabs. Apart from prediction, it will give details on the model (backend details like model accuracy, name of the model, etc.) and data (Pandas profiling). The model details tab is not updated for now...
+The Flask app contains three nav tabs. Apart from prediction, it will give details on the model (backend details like model accuracy, name of the model, etc.) and data details (Pandas profiling). The model details tab is not updated for now...
 
 #
 
