@@ -1,0 +1,6 @@
+LinearRegression=0.5431349530988964
+Lasso=0.44283017051618667
+Ridge=0.5345185244728365
+Elasticnet=0.4492522318604465
+
+Best Model Found , Model Name : LinearRegression , R2 Score : 54.31349530988964

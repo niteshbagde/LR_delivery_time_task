@@ -1,0 +1,6 @@
+LinearRegression=0.6013400124301644
+Lasso=0.5193139907729312
+Ridge=0.6060420682552174
+Elasticnet=0.5310643762822805
+
+Best Model Found , Model Name : Ridge , R2 Score : 60.60420682552174

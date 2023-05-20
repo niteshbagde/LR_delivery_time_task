@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Delivery Time Estimation</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+  <link rel="stylesheet" href="#">
+</head>
+
+
+
+<body>
+
+
+  <div class="container-fluid">
+    <h3 align="center">Delivery time estimation</h3>
+
+    <nav class="nav justify-content-center" style="border-bottom: 1px solid #979dee;">
+
+      <ul class="nav justify-content-center">
+        <li class="nav-item">
+          <a class="nav-link active" href="{{ url_for('home_page') }}">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{{ url_for('model_details') }}">Model Details</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{{ url_for('data_details') }}">Data Details</a>
+        </li>
+      </ul>
+    </nav>
+    </br>
+    </br>
+    </br>
+
+
+
+
+
+
+
+
+
+    <a style="padding-left: 2%;" href="{{ url_for('re_train_model1') }}" target="_blank">Train / Re-Train Model 1</a>
+
+
+
+
+    <div class="p-4 border rounded">
+      <div class="d-flex justify-content-between">
+        <div style="flex-basis: 48%; margin-right: 2%;">
+
+          <h3> This is the model 1 details : </h3>
+          <p> The data feed to model contains columns : </p>
+          <p>
+            'Delivery_person_Age', 'Delivery_person_Ratings', 'Restaurant_latitude', 'Restaurant_longitude',
+            'Delivery_location_latitude', 'Delivery_location_longitude',
+          </p>
+          <p>
+            'Weather_conditions', 'Road_traffic_density', 'Vehicle_condition',
+            'Type_of_order', 'Type_of_vehicle', 'multiple_deliveries', 'Festival',
+          </p>
+          <p>
+            'City', 'Time_taken (min)', 'Daytime', 'Time_Difference_Minutes',
+            'Order_Hour', 'Order_Minute', 'Picked_Hour', 'Picked_Minute'
+          </p>
+        </div>
+        <div style="flex-basis: 48% ; margin-right: 2%;"> </br></br>
+          <div class="p-4 border rounded">
+          <h5>Following is the evaluation details : </h5>
+          {%for i in range(0, len)%}
+          <p>{{model1[i]}}</p>
+          {%endfor%}
+        </div></div>
+      </div>
+    </div>
+
+
+
+
+
+    </br> </br> </br>
+
+    <a style="padding-left: 2%;" href="{{ url_for('re_train_model2') }}" target="_blank">Train / Re-Train Model 2</a>
+
+
+    <div class="p-4 border rounded">
+      <div class="d-flex justify-content-between">
+        <div style="flex-basis: 48%; margin-right: 2%;">
+          <h3> This is the model 2 details : </h3>
+
+          <p> The data feed to model contains columns : </p>
+          <p>
+            'Delivery_person_Age', 'Delivery_person_Ratings', 'Weather_conditions',
+            'Road_traffic_density',
+          </p>
+          <p>
+            'Vehicle_condition', 'Type_of_order',
+            'Type_of_vehicle', 'multiple_deliveries', 'Festival', 'City',
+
+          </p>
+          <p>
+            'Time_taken (min)', 'Daytime', 'order_pick_Time_Difference_Minutes',
+            'onground_dist(KM)'
+          </p>
+
+          <p><strong><i>Note: The custom columns were added and also removed other columns to increase the accuracy and
+                remove over fitting </i></strong></p>
+          <li>'order_pick_Time_Difference_Minutes' - Time difference between ordered time and picked order time by
+            delivery agent</li>
+          <li>'onground_dist(KM)' - scrapped the realworld distance using google maps (for 1000 points only)</li>
+          <li>'Daytime' - the time when order was picked by agent</li>
+        </div>
+        <div style="flex-basis: 48% ; margin-right: 2%;" > </br></br></br></br>
+          <div class="p-4 border rounded">
+          <h5>Following is the evaluation details : </h5>
+          {%for i in range(0, len)%}
+          <p>{{model2[i]}}</p>
+          {%endfor%}
+        </div></div>
+      </div>
+    </div>
+
+  </div>
+
+</body>
+
+
+
+
+
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+  integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js"
+  integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js"
+  integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+</html>

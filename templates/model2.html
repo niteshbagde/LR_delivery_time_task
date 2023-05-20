@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Delivery Time Estimation</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="#">
+</head>
+
+
+
+<body>
+    <div class="container-fluid">
+        <h3 align="center">Delivery time estimation</h3>
+        <nav class="nav justify-content-center" style="border-bottom: 1px solid #979dee;">
+            <ul class="nav justify-content-center">
+                <li class="nav-item">
+                    <a class="nav-link active" href="{{ url_for('home_page') }}">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('model_details') }}">Model Details</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('data_details') }}">Data Details</a>
+                </li>
+            </ul>
+        </nav>
+        </br></br>
+
+
+        <div class="container">
+            <h5>Provide the following details :</h5>
+
+
+            <form action="{{url_for('run_model2')}}" method="POST">
+                <div align="center">
+
+                    <table class="table">
+                        <tbody>
+                            <tr>
+                                <th>Delivery person Age</th>
+                                <td><input type="number" step="0.01" min="18" max="60" name="Delivery_person_Age"
+                                        class="form-control" placeholder="age as integer" required></td>
+                            </tr>
+                            <tr>
+                                <th>Delivery person Ratings</th>
+                                <td><input type="number" step="0.1" min="0.0" max="5.0" name="Delivery_person_Ratings"
+                                        class="form-control" placeholder=" rating as float" required></td>
+                            </tr>
+                            <th>Weather conditions</th>
+                            <td>
+                                <select name="Weather_conditions" class="form-control" required>
+                                    <option value="Fog">Fog</option>
+                                    <option value="Stormy">Stormy</option>
+                                    <option value="Sandstorms">Sandstorms</option>
+                                    <option value="Windy">Windy</option>
+                                    <option value="Cloudy">Cloudy</option>
+                                    <option value="Sunny">Sunny</option>
+                                </select>
+                            </td>
+                            </tr>
+                            <tr>
+                                <th>Road traffic density</th>
+                                <td>
+                                    <select name="Road_traffic_density" class="form-control" required>
+                                        <option value="Low">Low</option>
+                                        <option value="Medium">Medium</option>
+                                        <option value="High">High</option>
+                                        <option value="Jam">Jam</option>
+                                    </select>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Vehicle condition</th>
+                                <td>
+                                    <select name="Vehicle_condition" class="form-control" required>
+                                        <option value="0">Poor</option>
+                                        <option value="1">Average</option>
+                                        <option value="2">Good</option>
+                                    </select>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Type of order</th>
+                                <td>
+                                    <select name="Type_of_order" class="form-control" required>
+                                        <option value="Snack">Snack</option>
+                                        <option value="Meal">Meal</option>
+                                        <option value="Buffet">Buffet</option>
+                                        <option value="Drinks">Drinks</option>
+                                    </select>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Type of vehicle</th>
+                                <td>
+                                    <select name="Type_of_vehicle" class="form-control" required>
+                                        <option value="motorcycle">Motorcycle</option>
+                                        <option value="scooter">Scooter</option>
+                                        <option value="electric_scooter">Electric scooter</option>
+                                    </select>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Multiple deliveries</th>
+                                <td> <select name="Multiple_deliveries" class="form-control" required>
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                    </select></td>
+                            </tr>
+                            <tr>
+                                <th>Festival</th>
+                                <td>
+                                    <select name="Festival" class="form-control" required>
+                                        <option value="No">No</option>
+                                        <option value="Yes">Yes</option>
+                                    </select>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>City</th>
+                                <td>
+                                    <select name="City" class="form-control" required>
+                                        <option value="Metropolitian">Metropolitian</option>
+                                        <option value="Urban">Urban</option>
+                                        <option value="Semi-Urban">Semi-Urban</option>
+                                    </select>
+                                </td>
+                            </tr>
+                            <th>Daytime</th>
+                            <td>
+                                <select name="Daytime" class="form-control" required>
+                                    <option value="morning">Morning</option>
+                                    <option value="afternoon">Afternnon</option>
+                                    <option value="evening">Evening</option>
+                                    <option value="night">Night</option>
+                                </select>
+                            </td>
+
+                            </tr>
+                            <th>Difference in order time and delivery agent picked time</th>
+                            <td>
+                                <select name="order_pick_Time_Difference_Minutes" class="form-control" required>
+                                    <option value="5">5</option>
+                                    <option value="10">10</option>
+                                    <option value="15">15</option>
+                                    <option value="20">20</option>
+                                    <option value="25">25</option>
+                                    <option value="30">30</option>
+                                </select>
+                            </td>
+                            </tr>
+                            <th>Ground distance from restaurant to delivery location</th>
+                            <td><input type="number" step="0.001" name="onground_dist_in_KM" class="form-control"
+                                    placeholder="distance as float in KM" required></td>
+                            </tr>
+
+
+
+                        </tbody>
+                    </table>
+                </div>
+
+                <div align="center">
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
+
+            </form>
+        </div>
+
+
+
+    </div>
+
+</body>
+
+
+
+
+
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+    crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+    crossorigin="anonymous"></script>
+
+</html>
